@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Market Prices</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h2>📊 MarketPulse Dashboard</h2>
+
+<a href="/">Home</a>
+<a href="/add">Add Price</a>
+
+<th>Action</th>
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Item</th>
+    <th>Price</th>
+    <th>Market</th>
+</tr>
+
+{% for row in rows %}
+<tr>
+    <td>{{ row[0] }}</td>
+    <td>{{ row[1] }}</td>
+    <td>₦{{ row[2] }}</td>
+    <td>{{ row[3] }}</td>
+    <td><a href="/delete/{{ row[0] }}">Delete</a></td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>
