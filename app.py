@@ -47,8 +47,7 @@ def prices():
     conn = get_db_connection()
     cur = conn.cursor()
 
-    cur.execute("SELECT * FROM prices")
-
+    cur.execute("SELECT * FROM prices ORDER BY created_at DESC")
     rows = cur.fetchall()
 
     cur.close()

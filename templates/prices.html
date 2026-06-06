@@ -20,15 +20,18 @@
         {% if rows %}
         <table>
             <tr>
-                <th>Item</th>
-                <th>Price (₦)</th>
-                <th>Market</th>
-            </tr>
+               <th>Item</th>
+               <th>Price (₦)</th>
+               <th>Market</th>
+               <th>Date Added</th>
+               <th>Actions</th>
+             </tr>
             {% for row in rows %}
             <tr>
                 <td>{{ row[1] }}</td>
                 <td>₦{{ row[2] }}</td>
                 <td>{{ row[3] }}</td>
+                <td>{{ row[4].strftime('%d %b %Y') if row[4] else 'N/A' }}</td>
             </tr>
             {% endfor %}
         </table>
