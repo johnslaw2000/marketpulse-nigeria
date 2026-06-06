@@ -2,27 +2,37 @@
 <html>
 <head>
     <title>Add Price</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Add Market Price</h1>
-
-    <form method="POST">
-        <p>
-            <label>Item Name:</label><br>
-            <input type="text" name="item" required>
-        </p>
-        <p>
-            <label>Price (₦):</label><br>
-            <input type="number" name="price" required>
-        </p>
-        <p>
-            <label>Market:</label><br>
-            <input type="text" name="market" required>
-        </p>
-        <button type="submit">Add Price</button>
-    </form>
-
-    <br>
-    <a href="/prices">View All Prices</a>
+    <header>
+        <h1>🇳🇬 MarketPulse</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/prices">Prices</a>
+            <a href="/add">Add Price</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Add Market Price</h2>
+        <form method="POST">
+            <p>
+                <label>Item Name</label>
+                <input type="text" name="item" placeholder="e.g. Rice, Tomatoes, Yam" required>
+            </p>
+            <p>
+                <label>Price (₦)</label>
+                <input type="number" name="price" placeholder="e.g. 50000" required>
+            </p>
+            <p>
+                <label>Market</label>
+                <input type="text" name="market" placeholder="e.g. Mile 12, Oyingbo, Wuse" required>
+            </p>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Add Price</button>
+                <a href="/prices" class="btn btn-danger">Cancel</a>
+            </div>
+        </form>
+    </main>
 </body>
 </html>

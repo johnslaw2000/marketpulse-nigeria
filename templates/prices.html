@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Prices</title>
+    <title>Market Prices</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Prices</h1>
+    <header>
+        <h1>🇳🇬 MarketPulse</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/prices">Prices</a>
+            <a href="/add">Add Price</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Market Prices</h2>
+        <a href="/add" class="btn btn-primary add-btn">+ Add Price</a>
 
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Market</th>
-            <th>Date</th>
-        </tr>
-
-        {% for row in rows %}
-        <tr>
-            <td>{{ row[0] }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-            <td>{{ row[4] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
-    <a href="/add">Add Price</a>
+        {% if rows %}
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Price (₦)</th>
+                <th>Market</th>
+            </tr>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>₦{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <div class="empty-msg">
+            <p>No prices yet. Be the first to add one!</p>
+        </div>
+        {% endif %}
+    </main>
 </body>
 </html>

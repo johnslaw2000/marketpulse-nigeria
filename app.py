@@ -27,23 +27,18 @@ def add_price():
         item = request.form['item']
         price = request.form['price']
         market = request.form['market']
-
         conn = get_db_connection()
         cur = conn.cursor()
-
         cur.execute(
             "INSERT INTO prices (item, price, market) VALUES (%s, %s, %s)",
             (item, price, market)
         )
-
         conn.commit()
-
         cur.close()
         conn.close()
-
-        return "Price Added Successfully ✅"
-
+        return render_template('success.html')
     return render_template('add.html')
+
 
 # VIEW PRICES
 @app.route('/prices')
