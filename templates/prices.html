@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prices</title>
+</head>
+<body>
+    <h1>Prices</h1>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Market</th>
+            <th>Date</th>
+        </tr>
+
+        {% for row in rows %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/add">Add Price</a>
+</body>
+</html>

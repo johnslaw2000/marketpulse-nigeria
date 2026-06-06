@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: marketpulse
+      POSTGRES_PASSWORD: marketpass
+      POSTGRES_DB: marketpulse
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
